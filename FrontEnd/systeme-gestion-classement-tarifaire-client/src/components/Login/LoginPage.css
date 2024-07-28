@@ -1,0 +1,171 @@
+.loginPage-container {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 100, 180);
+}
+
+
+.logo-container{
+  display: flex; 
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 20vh; 
+}
+
+.logo-container .logo{
+    height: 20vh;
+}
+
+.loginPage-title h1 {
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.5s;
+    cursor: default;
+}
+
+.loginPage-title h1:hover {
+    color: rgb(0, 140, 255);
+}
+
+.loginPage-container .loginPage-form {
+
+    background-color: rgb(243, 243, 243);
+    min-width: 450px;
+    border-radius: 2%;
+    padding: 5%;
+    box-shadow: 0 0 20px 5px rgba(40, 40, 90, 0.5);
+}
+
+.loginPage-form label {
+    font-weight: 550;
+    color: rgb(0, 0, 0);
+}
+
+/*input*/
+.loginPage-form .input-control input {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+    border: 2px solid;
+    transition: 0.5s;
+    width: 250px;
+}
+
+.loginPage-form .input-control.neutral input:hover {
+    background-color: rgb(213, 213, 213);
+    box-shadow: 0 0 20px 5px rgba(207, 228, 255, 0.5);
+}  
+
+
+.loginPage-form .input-control select {
+    margin: 5px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+    border: 2px solid;
+    transition: 0.5s;
+}
+
+.loginPage-form .input-control.neutral select:hover {
+    background-color: rgb(213, 213, 213);
+    box-shadow: 0 0 20px 5px rgba(207, 228, 255, 0.5);
+} 
+
+.loginPage-form .input-control {
+    margin: 15px;
+}
+
+.loginPage-form .input-control input:focus {
+    outline: 0;
+}
+
+/*buttons*/
+.loginPage-form .submitButton {
+    margin: 20px;
+}
+
+.loginPage-form .submitButton button {
+    margin: 10px;
+    height: 30px;
+    width: 100px;
+    transition: 0.2s;
+    border: 2px, solid, black;
+}
+
+.loginPage-form .valider:hover {
+    color: white;
+    background-color: rgb(0, 150, 0);
+    cursor: pointer;
+}
+
+.loginPage-form .reinitialiser:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+
+/*error messages*/
+.loginPage-form .input-control.success input {
+    border-color: rgb(0, 150, 0);
+}
+
+.loginPage-form .input-control.error input {
+    border-color: red;
+}
+
+.loginPage-form .input-control.error input:hover {
+    background-color: rgb(255, 200, 200);
+    box-shadow: 0 0 20px 5px rgba(255, 145, 145, 0.5);
+}
+
+.loginPage-form .input-control.success input:hover {
+    background-color: rgb(200, 255, 200);
+    box-shadow: 0 0 20px 5px rgba(145, 255, 145, 0.5);
+}
+
+.loginPage-form .input-control.neutral input {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+}
+
+.loginPage-form .input-control.success select {
+    border-color: rgb(0, 150, 0);
+}
+
+.loginPage-form .input-control.error select {
+    border-color: red;
+}
+
+.loginPage-form .input-control.error select:hover {
+    background-color: rgb(255, 200, 200);
+    box-shadow: 0 0 20px 5px rgba(255, 145, 145, 0.5);
+}
+
+.loginPage-form .input-control.success select:hover {
+    background-color: rgb(200, 255, 200);
+    box-shadow: 0 0 20px 5px rgba(145, 255, 145, 0.5);
+}
+
+.loginPage-form .input-control.neutral select {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+}
+
+.loginPage-form .input-control.error .errorMessage {
+    font-size: 0.8em;
+    color: red;
+    margin-left: 10px;
+}
+
+.loginPage-form .input-control.success .errorMessage {
+    font-size: 0.8em;
+    color: rgb(0, 150, 0);
+    margin-left: 10px;
+}
+

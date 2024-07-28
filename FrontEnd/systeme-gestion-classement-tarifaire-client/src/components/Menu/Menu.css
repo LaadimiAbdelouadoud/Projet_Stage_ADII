@@ -1,0 +1,58 @@
+/* DrawerTest.css */
+.drawerContainer {
+  display: flex;
+  justify-content: left;
+  height: 5vh;
+  background-color: rgb(0, 100, 180);
+
+}
+
+.drawerButton{
+  border: #3c489f, solid, 4px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(228, 228, 228);
+  transition: 0.5s;
+}
+
+.drawerButton:hover{
+  background-color: white;
+  border: #525fc2, solid, 4px;
+}
+
+.drawerButton div{
+  margin: 3px;
+  width:34px;
+  padding: 2px;
+  border-radius: 2px;
+  background-color: #3c489f;
+
+}
+
+.drawerButton:hover div{
+  background-color: #4856bc;
+  
+}
+
+.drawerList {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 16px;
+}
+
+.drawerListItem {
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.drawerListItem:hover {
+  background-color: rgb(255, 255, 255);
+}

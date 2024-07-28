@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    vertical-align: middle;
+}
+
+#Logo {
+    position: fixed;
+    height: 50px;
+    right: 0px;
+    top: 0px;
+}
+
+.title h1 {
+    transition: 0.5s;
+    cursor: default;
+}
+
+.title h1:hover {
+    color: rgb(0, 140, 255);
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    background-color: rgb(0, 100, 180);
+}
+
+.container form {
+    background-color: rgb(243, 243, 243);
+    width: 60%;
+    min-width: 450px;
+    border-radius: 2%;
+    margin-left: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 5%;
+    box-shadow: 0 0 20px 5px rgba(40, 40, 90, 0.5);
+}
+
+label {
+    font-weight: 550;
+    color: rgb(0, 0, 0);
+}
+
+/*input*/
+.input-control input {
+    margin: 5px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+    border: 2px solid;
+    transition: 0.5s;
+    width: 250px;
+}
+
+.input-control.neutral input:hover {
+    background-color: rgb(213, 213, 213);
+    box-shadow: 0 0 20px 5px rgba(207, 228, 255, 0.5);
+}  
+
+#email {
+    width: 250px;
+}
+
+.input-control select {
+    margin: 5px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    padding-left: 5px;
+    border: 2px solid;
+    transition: 0.5s;
+}
+
+.input-control.neutral select:hover {
+    background-color: rgb(213, 213, 213);
+    box-shadow: 0 0 20px 5px rgba(207, 228, 255, 0.5);
+} 
+
+.input-control {
+    margin: 15px;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+/*buttons*/
+.submitButton {
+    margin: 10px;
+}
+
+.submitButton button {
+    margin: 5px;
+    height: 25px;
+    width: 75px;
+    transition: 0.2s;
+}
+
+#valider:hover {
+    color: white;
+    background-color: rgb(0, 170, 0);
+    cursor: pointer;
+}
+
+#reinitialiser:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+
+/*error messages*/
+.input-control.success input {
+    border-color: green;
+}
+
+.input-control.error input {
+    border-color: red;
+}
+
+.input-control.error input:hover {
+    background-color: rgb(255, 200, 200);
+    box-shadow: 0 0 20px 5px rgba(255, 145, 145, 0.5);
+}
+
+.input-control.success input:hover {
+    background-color: rgb(200, 255, 200);
+    box-shadow: 0 0 20px 5px rgba(145, 255, 145, 0.5);
+}
+
+.input-control.neutral input {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+}
+
+.input-control.success select {
+    border-color: green;
+}
+
+.input-control.error select {
+    border-color: red;
+}
+
+.input-control.error select:hover {
+    background-color: rgb(255, 200, 200);
+    box-shadow: 0 0 20px 5px rgba(255, 145, 145, 0.5);
+}
+
+.input-control.success select:hover {
+    background-color: rgb(200, 255, 200);
+    box-shadow: 0 0 20px 5px rgba(145, 255, 145, 0.5);
+}
+
+.input-control.neutral select {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+}
+
+.input-control.error .errorMessage {
+    font-size: 0.8em;
+    color: red;
+    margin-left: 10px;
+}
+
+.input-control.success .errorMessage {
+    font-size: 0.8em;
+    color: green;
+    margin-left: 10px;
+}
+
+footer {
+    height: 6vh;
+}
+
+footer .footerDiv {
+    font-weight: 500;
+    margin-top: 3vh;
+    margin-left: 3vh;
+}

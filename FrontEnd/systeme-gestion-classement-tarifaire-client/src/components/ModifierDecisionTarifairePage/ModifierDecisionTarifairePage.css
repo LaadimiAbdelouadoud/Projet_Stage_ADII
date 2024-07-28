@@ -1,0 +1,195 @@
+/* Back button container */
+.modifierDecisionTarifaire-bouttonRetour {
+  height: 5vh;
+  display: flex;
+  background-color: rgb(0, 100, 180);
+}
+
+.modifierDecisionTarifaire-bouttonRetour button {
+  margin: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color: rgb(243, 243, 243);
+  color: rgb(0, 100, 180);
+  transition: 0.2s;
+}
+
+.modifierDecisionTarifaire-bouttonRetour button:hover {
+  background-color: rgb(131, 164, 255);
+  color: white;
+  box-shadow: 0 0 20px 5px rgba(118, 177, 255, 0.5);
+}
+
+/* Container for the entire page */
+.modifierDecisionTarifaire-container {
+  width: 100%;
+  min-height: 95vh;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 100, 180);
+}
+
+
+
+/* Title styling */
+.modifierDecisionTarifaire-title h1 {
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.5s;
+  cursor: default;
+}
+
+.modifierDecisionTarifaire-title h1:hover {
+  color: rgb(0, 140, 255);
+}
+
+/* Form container */
+.modifierDecisionTarifaire-container .modifierDecisionTarifaire-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(243, 243, 243);
+  min-width: 450px;
+  max-width: fit-content;
+  border-radius: 2%;
+  padding: 2%;
+  box-shadow: 0 0 20px 5px rgba(40, 40, 90, 0.5);
+}
+
+/* Input control styling */
+.modifierDecisionTarifaire-container .modifierDecisionTarifaire-form .input-control {
+  width: 250px;
+  margin: 8px;
+}
+
+.modifierDecisionTarifaire-form label {
+  font-weight: 550;
+  color: rgb(0, 0, 0);
+}
+
+.modifierDecisionTarifaire-form .input-control #numNote {
+  color: rgb(165, 165, 165);
+}
+
+.modifierDecisionTarifaire-form .input-control #numNote-label{
+  color: grey;
+}
+
+/* Input and select styling */
+.modifierDecisionTarifaire-form .input-control input,
+.modifierDecisionTarifaire-form .input-control select,
+.modifierDecisionTarifaire-form .input-control textarea {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
+  padding-left: 5px;
+  border: 2px solid;
+  transition: 0.5s;
+  width: 250px;
+}
+
+.modifierDecisionTarifaire-form .input-control textarea {
+  height: 100px;
+  resize: none;
+}
+
+.modifierDecisionTarifaire-form .input-control.neutral input:hover,
+.modifierDecisionTarifaire-form .input-control.neutral select:hover,
+.modifierDecisionTarifaire-form .input-control.neutral textarea:hover {
+  background-color: rgb(213, 213, 213);
+  box-shadow: 0 0 20px 5px rgba(207, 228, 255, 0.5);
+}
+
+.modifierDecisionTarifaire-form .input-control input:focus,
+.modifierDecisionTarifaire-form .input-control select:focus,
+.modifierDecisionTarifaire-form .input-control textarea:focus {
+  outline: 0;
+}
+
+/* Button container */
+.modifierDecisionTarifaire-form .submitButton {
+  margin: 20px;
+}
+
+.modifierDecisionTarifaire-form .submitButton button {
+  margin: 10px;
+  height: 30px;
+  width: 100px;
+  transition: 0.2s;
+  border: 2px solid black;
+}
+
+.modifierDecisionTarifaire-form .valider:hover {
+  color: white;
+  background-color: rgb(0, 150, 0);
+  cursor: pointer;
+}
+
+.modifierDecisionTarifaire-form .reinitialiser:hover {
+  color: white;
+  background-color: red;
+  cursor: pointer;
+}
+
+/* Error messages */
+.modifierDecisionTarifaire-form .input-control.success input,
+.modifierDecisionTarifaire-form .input-control.success select,
+.modifierDecisionTarifaire-form .input-control.success textarea {
+  border-color: rgb(0, 150, 0);
+}
+
+.modifierDecisionTarifaire-form .input-control.error input,
+.modifierDecisionTarifaire-form .input-control.error select,
+.modifierDecisionTarifaire-form .input-control.error textarea {
+  border-color: red;
+}
+
+.modifierDecisionTarifaire-form .input-control.error input:hover,
+.modifierDecisionTarifaire-form .input-control.error select:hover,
+.modifierDecisionTarifaire-form .input-control.error textarea:hover {
+  background-color: rgb(255, 200, 200);
+  box-shadow: 0 0 20px 5px rgba(255, 145, 145, 0.5);
+}
+
+.modifierDecisionTarifaire-form .input-control.success input:hover,
+.modifierDecisionTarifaire-form .input-control.success select:hover,
+.modifierDecisionTarifaire-form .input-control.success textarea:hover {
+  background-color: rgb(200, 255, 200);
+  box-shadow: 0 0 20px 5px rgba(145, 255, 145, 0.5);
+}
+
+.modifierDecisionTarifaire-form .input-control.neutral input,
+.modifierDecisionTarifaire-form .input-control.neutral select,
+.modifierDecisionTarifaire-form .input-control.neutral textarea {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(0, 0, 0);
+}
+
+.modifierDecisionTarifaire-form .input-control.error .errorMessage {
+  font-size: 0.8em;
+  color: red;
+  margin-left: 10px;
+}
+
+.modifierDecisionTarifaire-form .input-control.success .errorMessage {
+  font-size: 0.8em;
+  color: rgb(0, 150, 0);
+  margin-left: 10px;
+}
+
+.modifierDecisionTarifaire-form .message.error {
+  font-size: 0.8em;
+  color: red;
+  margin-left: 10px;
+}
+
+.modifierDecisionTarifaire-form .message.success {
+  font-size: 0.8em;
+  color: rgb(0, 150, 0);
+  margin-left: 10px;
+}
