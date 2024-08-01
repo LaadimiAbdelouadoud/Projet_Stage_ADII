@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import api from "../../api.js"; // Import the configured Axios instance
 import logo from "../../assets/images/logo.jpg";
 import "./LoginPage.css";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import RequestPasswordResetPage from "../RequestPasswordResetPage/RequestPasswordResetPage.jsx";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -191,7 +192,9 @@ const LoginPage = () => {
             </button>
             <div className={"errorMessage"}>{message}</div>{" "}
             {/* Display message */}
+            <Link to={"/request-password-reset"}>MotDepasse oublié</Link>
           </div>
+          
         </form>
       </div>
     </>

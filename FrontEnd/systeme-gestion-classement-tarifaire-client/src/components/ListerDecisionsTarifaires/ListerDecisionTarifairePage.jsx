@@ -1,22 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import api from "../../api.js";
 import "./ListerDecisionTarifairePage.css";
 import Menu from "../Menu/Menu.jsx";
-import EditIcon from '@mui/icons-material/Edit'; // Import MUI EditIcon
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import EditIcon from '@mui/icons-material/Edit'; 
+import { Link } from "react-router-dom"; 
 
 const ListerDecisionTarifairePage = () => {
-  const [codeTarifaire, setCodeTarifaire] = useState("");
+  const [formData, setFormData] = useState({
+    codeTarifaire: "",
+    numNote: "",
+    libeleNote: "",
+    dateDecision: "",
+    dateValidite: ""
+  });
+  const [motCle, setMotCle] = useState("");
   const [decisions, setDecisions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const decisionsPerPage = 10;
 
   const handleChange = (e) => {
-    setCodeTarifaire(e.target.value);
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleMotCleChange = (e) => {
+    setMotCle(e.target.value);
   };
 
   const handleReset = () => {
-    setCodeTarifaire("");
+    setFormData({
+      codeTarifaire: "",
+      numNote: "",
+      libeleNote: "",
+      dateDecision: "",
+      dateValidite: ""
+    });
+    setMotCle("");
     setDecisions([]);
     setCurrentPage(1);
   };
@@ -24,13 +46,23 @@ const ListerDecisionTarifairePage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Replace empty string with null
-    const requestData = { codeTarifaire: codeTarifaire || null };
+    const decisionTarifaire = {
+      codeTarifaire: formData.codeTarifaire || null,
+      numNote: formData.numNote || null,
+      libeleNote: formData.libeleNote || null,
+      dateDecision: formData.dateDecision || null,
+      dateValidite: formData.dateValidite || null
+    };
 
-    console.log("Request Data:", JSON.stringify(requestData, null, 2));
+    const formattedRequestBody = {
+      decisionTarifaire,
+      motCle: motCle || null
+    };
+
+    console.log("Request Data:", JSON.stringify(formattedRequestBody, null, 2));
 
     api
-      .post("http://localhost:8080/api/Decision/lister_decision", requestData)
+      .post("http://localhost:8080/api/Decision/lister_decision", formattedRequestBody)
       .then((response) => {
         setDecisions(response.data);
       })
@@ -62,8 +94,71 @@ const ListerDecisionTarifairePage = () => {
               name="codeTarifaire"
               id="codeTarifaire"
               placeholder="Code Tarifaire"
-              value={codeTarifaire}
+              value={formData.codeTarifaire}
               onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-control">
+            <label htmlFor="numNote">Num Note</label>
+            <br />
+            <input
+              type="text"
+              name="numNote"
+              id="numNote"
+              placeholder="Num Note"
+              value={formData.numNote}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-control">
+            <label htmlFor="libeleNote">Libele Note</label>
+            <br />
+            <input
+              type="text"
+              name="libeleNote"
+              id="libeleNote"
+              placeholder="Libele Note"
+              value={formData.libeleNote}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-control">
+            <label htmlFor="dateDecision">Date Decision</label>
+            <br />
+            <input
+              type="date"
+              name="dateDecision"
+              id="dateDecision"
+              value={formData.dateDecision}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-control">
+            <label htmlFor="dateValidite">Date Validite</label>
+            <br />
+            <input
+              type="date"
+              name="dateValidite"
+              id="dateValidite"
+              value={formData.dateValidite}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="input-control">
+            <label htmlFor="motCle">Mot Clé</label>
+            <br />
+            <input
+              type="text"
+              name="motCle"
+              id="motCle"
+              placeholder="Mot Clé"
+              value={motCle}
+              onChange={handleMotCleChange}
             />
           </div>
 
@@ -82,7 +177,7 @@ const ListerDecisionTarifairePage = () => {
                   <tr>
                     <th>Num Note</th>
                     <th>Libele Note</th>
-                    <th>CodeTarifaire</th>
+                    <th>Code Tarifaire</th>
                     <th>Date Diffusion</th>
                     <th>Decision</th>
                     <th>Date Decision</th>
@@ -124,7 +219,6 @@ const ListerDecisionTarifairePage = () => {
               </div>
             </>
           )}
-          
         </div>
       </div>
     </>

@@ -15,4 +15,8 @@ public interface UtilisateurService {
     public List<Utilisateur> listerUtilisateur(Utilisateur utilisateur) throws Exception;
 
     public Utilisateur getUtilisateurById(Long id) throws Exception;
+    public void createPasswordResetTokenForUser(Utilisateur user, String token);
+    public void sendPasswordResetEmail(Utilisateur user, String token);
+    public Utilisateur getUserByPasswordResetToken(String token);
+    public void changeUserPassword(Utilisateur user, String password);
 }

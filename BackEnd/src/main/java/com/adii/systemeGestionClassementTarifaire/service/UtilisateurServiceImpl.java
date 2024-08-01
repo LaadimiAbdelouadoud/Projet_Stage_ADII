@@ -1,14 +1,18 @@
 package com.adii.systemeGestionClassementTarifaire.service;
 
 import com.adii.systemeGestionClassementTarifaire.config.JwtService;
+import com.adii.systemeGestionClassementTarifaire.model.PasswordResetToken;
 import com.adii.systemeGestionClassementTarifaire.model.Profile;
 import com.adii.systemeGestionClassementTarifaire.model.Structure;
 import com.adii.systemeGestionClassementTarifaire.model.Utilisateur;
+import com.adii.systemeGestionClassementTarifaire.repository.PasswordResetTokenRepository;
 import com.adii.systemeGestionClassementTarifaire.repository.ProfileRepository;
 import com.adii.systemeGestionClassementTarifaire.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +26,14 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Autowired
     private ProfileRepository profileRepository;
+
+    @Autowired
+    private PasswordResetTokenRepository tokenRepository;
+
+    @Autowired
+    private EmailService emailService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Utilisateur findUserByJwtToken(String token) throws Exception {
@@ -87,6 +99,26 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public Utilisateur getUtilisateurById(Long id) throws Exception {
         return userRepository.findById(id).get();
+    }
+
+    public void createPasswordResetTokenForUser(Utilisateur user, String token) {
+        PasswordResetToken myToken = new PasswordResetToken(token, user, LocalDateTime.now().plusHours(24));
+        tokenRepository.save(myToken);
+    }
+
+    public void sendPasswordResetEmail(Utilisateur user, String token) {
+        String url = "http://localhost:3000/password-reset/" + token;
+        String message = "Reinitialisez votre motDePasse avec ce lien: " + url;
+        emailService.sendEmail(user.getEmail(), "Système de gestion des décisions tarifaires: Changement de MotDePasse", message);
+    }
+
+    public Utilisateur getUserByPasswordResetToken(String token) {
+        return tokenRepository.findByToken(token).getUser();
+    }
+
+    public void changeUserPassword(Utilisateur user, String password) {
+        user.setMotDePasse(passwordEncoder.encode(password)); // make sure to encode the password
+        userRepository.save(user);
     }
 
 

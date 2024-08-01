@@ -26,8 +26,13 @@ public class DecisionTarifaireSeviceImpl implements DecisionTarifaireSevice {
     private HistoriqueRepository historiqueRepository;
 
     @Override
-    public List<DecisionTarifaire> searchDecisionTarifaire(String codeTarifaire) {
-        return decisionTarifaireRepository.searchDecision(codeTarifaire);
+    public List<DecisionTarifaire> searchDecisionTarifaire(DecisionTarifaire decisionTarifaire, String motCle) {
+        return decisionTarifaireRepository.searchDecision(  decisionTarifaire.getCodeTarifaire(),
+                                                            decisionTarifaire.getNumNote(),
+                                                            decisionTarifaire.getLibeleNote(),
+                                                            decisionTarifaire.getDateDecision(),
+                                                            decisionTarifaire.getDateValidite(),
+                                                            motCle);
     }
 
     @Override

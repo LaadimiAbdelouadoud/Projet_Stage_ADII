@@ -15,6 +15,8 @@ import ListerDecisionTarifairePage from "./components/ListerDecisionsTarifaires/
 import AjouterDecisionTarifairePage from "./components/AjouterDecisionTarifairePage/AjouterDecisionTarifairePage";
 import ModifierDecisionTarifairePage from "./components/ModifierDecisionTarifairePage/ModifierDecisionTarifairePage";
 import ListerHistoriquePage from "./components/ListerHistoriquePage/ListeHistoriquePage";
+import PasswordResetPage from "./components/PasswordResetPage/PasswordResetPage";
+import RequestPasswordResetPage from "./components/RequestPasswordResetPage/RequestPasswordResetPage";
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Route path="/AjouterDecision" element={<AjouterDecisionTarifairePage/>}/>
           <Route path="/ModifierDecision/:id" element={<ModifierDecisionTarifairePage/>}/>   
           <Route path="/ListerHitorique" element={<ListerHistoriquePage/>}/>
+          <Route path="/request-password-reset" element={<RequestPasswordResetPage/>} />
+          <Route path="/password-reset/:token" element={<PasswordResetPage/>} />
         </Routes>
       </Router>
     </div>

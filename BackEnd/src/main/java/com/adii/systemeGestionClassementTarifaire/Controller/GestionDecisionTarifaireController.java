@@ -5,6 +5,7 @@ import com.adii.systemeGestionClassementTarifaire.model.Historique;
 import com.adii.systemeGestionClassementTarifaire.model.Utilisateur;
 import com.adii.systemeGestionClassementTarifaire.repository.DecisionTarifaireRepository;
 import com.adii.systemeGestionClassementTarifaire.repository.HistoriqueRepository;
+import com.adii.systemeGestionClassementTarifaire.request.DecisionRequest;
 import com.adii.systemeGestionClassementTarifaire.request.HistoriqueRequest;
 import com.adii.systemeGestionClassementTarifaire.response.DecisionResponse;
 import com.adii.systemeGestionClassementTarifaire.service.DecisionTarifaireSevice;
@@ -83,8 +84,8 @@ public class GestionDecisionTarifaireController {
 
 
     @PostMapping("/lister_decision")
-    public List<DecisionTarifaire> listerDecisionsTarifaires(@RequestBody DecisionTarifaire decisionTarifaire) {
-        return decisionTarifaireService.searchDecisionTarifaire(decisionTarifaire.getCodeTarifaire());
+    public List<DecisionTarifaire> listerDecisionsTarifaires(@RequestBody DecisionRequest decisionRequest) {
+        return decisionTarifaireService.searchDecisionTarifaire(decisionRequest.getDecisionTarifaire(), decisionRequest.getMotCle());
     }
 
     @GetMapping("/lister_decision/{id}")

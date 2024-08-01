@@ -16,6 +16,7 @@ public class Historique {
     @ManyToOne
     private DecisionTarifaire decisionTarifaire;
 
+
     @ManyToOne
     private Utilisateur utilisateur;
 

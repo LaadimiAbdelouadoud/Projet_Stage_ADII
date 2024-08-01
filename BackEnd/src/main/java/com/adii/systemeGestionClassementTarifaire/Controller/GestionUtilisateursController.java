@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("api/administration/gestion_utilisateur")
@@ -119,6 +120,8 @@ public class GestionUtilisateursController {
         UtilisateurResponse utilisateurResponse = new UtilisateurResponse(uilisateurModified, "Utilisateur (id: "+id+") modifié avec succés");
         return new ResponseEntity<>(utilisateurResponse, HttpStatus.OK);
     }
+
+
 
 
 

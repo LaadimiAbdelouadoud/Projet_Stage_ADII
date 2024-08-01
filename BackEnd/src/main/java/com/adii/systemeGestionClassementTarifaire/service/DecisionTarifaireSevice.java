@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public interface DecisionTarifaireSevice {
 
-    public List<DecisionTarifaire> searchDecisionTarifaire(String codeTarifaire);
+    public List<DecisionTarifaire> searchDecisionTarifaire(DecisionTarifaire decisionTarifaire, String motCle);
     public DecisionTarifaire getDecisionByNumNote(Long numNote);
     public List<Historique> listerHistorique(
             Long idUtilisateur,
